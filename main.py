@@ -14,12 +14,10 @@ def setup_logger():
     log_file = "log/log_" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
     logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def log(message):
-    logging.info(message)
-    print(message)
 
-    server_ip = 'bemfa.com'
-    server_port = 8344
+def log(message):
+    print(message)
+    logging.info(message)
 
 
 def connTCP():
@@ -29,12 +27,11 @@ def connTCP():
     server_port = 8344
 
     try:
-        with tcp_client_socket as s:
-            s.connect((server_ip, server_port))
-            substr = f'cmd=1&uid={UID}&topic={TOPIC}\r\n'
-            s.send(substr.encode("utf-8"))
+        tcp_client_socket.connect((server_ip, server_port))
+        substr = f'cmd=1&uid={UID}&topic={TOPIC}\r\n'
+        tcp_client_socket.send(substr.encode("utf-8"))
     except Exception as e:
-        logging.exception(f"Error connecting to server: {e}")
+        log(f"Error connecting to server: {e}")
         time.sleep(2)
         connTCP()
 
@@ -55,7 +52,7 @@ if __name__ == "__main__":
     setup_logger()
     connTCP()
     Ping()
-    log('Listening ')
+    log('start Listening to server')
 
     while True:
         try:
