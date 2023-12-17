@@ -41,4 +41,4 @@ python main.py
 - https://www.cnblogs.com/bemfa/p/15218111.html
 - Once connected, you should be able to control the virtual device using voice commands through Xiao Ai assistant.
 
-Congratulations! You have successfully set up a virtual smart home device, established local and cloud connections, and integrated it with Xiaomi's Xiao Ai assistant for remote control.
+Congratulations! You have successfully set up a virtual smart home device, established local and cloud connections, and integrated it with Xiaomi's Xiao Ai(小爱同学) assistant for remote control.
